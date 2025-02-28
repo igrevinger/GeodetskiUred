@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.35821.62 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bekend", "Bekend\Bekend.csproj", "{C7B061C5-4BD3-4A14-A1D9-BA9BAD81EE6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7B061C5-4BD3-4A14-A1D9-BA9BAD81EE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B061C5-4BD3-4A14-A1D9-BA9BAD81EE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B061C5-4BD3-4A14-A1D9-BA9BAD81EE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B061C5-4BD3-4A14-A1D9-BA9BAD81EE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E26E98D8-9CAA-471B-B25F-1141FD85121F}
+	EndGlobalSection
+EndGlobal
