@@ -1,11 +1,11 @@
 SELECT name, collation_name FROM sys.databases;
 GO
-ALTER DATABASE Geodezija SET SINGLE_USER WITH
+ALTER DATABASE db_ab364e_geodezija SET SINGLE_USER WITH
 ROLLBACK IMMEDIATE;
 GO
-ALTER DATABASE Geodezija COLLATE Croatian_CI_AS;
+ALTER DATABASE db_ab364e_geodezija COLLATE Croatian_CI_AS;
 GO
-ALTER DATABASE Geodezija SET MULTI_USER;
+ALTER DATABASE db_ab364e_geodezija SET MULTI_USER;
 GO
 SELECT name, collation_name FROM sys.databases;
 GO
