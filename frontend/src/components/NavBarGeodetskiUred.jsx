@@ -17,10 +17,14 @@ export default function NavBarGeodetskiUred(){
         <>
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">Geodetski ured</Navbar.Brand>
+                <Navbar.Brand
+                className='ruka'
+                onClick={()=>navigate( RouteNames.HOME)} 
+                >Geodetski ured</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
+
                     <NavDropdown title="Programi" id="basic-nav-dropdown">
                     <NavDropdown.Item 
                     onClick={()=>navigate(RouteNames.ZAPOSLENIK_PREGLED)}
