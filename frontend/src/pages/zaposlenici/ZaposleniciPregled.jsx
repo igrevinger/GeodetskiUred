@@ -1,11 +1,15 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import ZaposlenikService from "../../services/ZaposlenikService"
+import { Table } from "react-bootstrap";
 
 
 export default function ZaposleniciPregled(){
+
+    const [zaposlenici, setZaposlenici] = useState();
     
     async function dohvatiZaposlenike(){
-        const odgovor = ZaposlenikService.get()
+        const odgovor = await ZaposlenikService.get()
+        setZaposlenici(odgovor)
     }
 
     useEffect(()=>{
@@ -14,9 +18,28 @@ export default function ZaposleniciPregled(){
 
     return(
     <>
-    Ovdje će se vidjeti zaposlenici iz baze
+    <Table striped bordered hover responsive>
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>OIB</th>
+            </tr>
+        </thead>
+        <tbody>
+            {zaposlenici && zaposlenici.map((zaposlenici,index)=>(<tr>
+                <td>
+                  {zaposlenici.ime}
+                </td>
+                <td>
+                  {zaposlenici.prezime}
+                </td>
+                <td>
+                  {zaposlenici.oib}
+                </td>
+            </tr>))}
+        </tbody>
+    </Table>
     </>
     )
-
-
 }
