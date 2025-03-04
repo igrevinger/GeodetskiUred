@@ -1,7 +1,8 @@
 export const RouteNames={
     HOME: '/',
 
-    ZAPOSLENIK_PREGLED: '/zaposlenici'
+    ZAPOSLENIK_PREGLED: '/zaposlenici',
+    ZAPOSLENIK_NOVI: '/zaposlenici/dodaj'
 }
 
 

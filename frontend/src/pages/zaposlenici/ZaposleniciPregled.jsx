@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import ZaposlenikService from "../../services/ZaposlenikService"
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../../constants";
 
 
 export default function ZaposleniciPregled(){
@@ -17,8 +19,13 @@ export default function ZaposleniciPregled(){
     },[])    
 
     return(
-    <>
-    <Table striped bordered hover responsive>
+       <>
+       <Link
+       to={RouteNames.ZAPOSLENIK_NOVI}
+       className="btn btn-success siroko"
+       >Dodaj novog zaposlenika
+        </Link>
+        <Table striped bordered hover responsive>
         <thead>
             <tr>
                 <th>Ime</th>
@@ -39,7 +46,7 @@ export default function ZaposleniciPregled(){
                 </td>
             </tr>))}
         </tbody>
-    </Table>
-    </>
+     </Table>
+     </>
     )
 }
