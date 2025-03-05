@@ -7,6 +7,7 @@ import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import ZaposleniciPregled from './pages/zaposlenici/ZaposleniciPregled'
 import ZaposleniciDodaj from './pages/zaposlenici/ZaposleniciDodaj'
+import ZaposleniciPromjena from './pages/zaposlenici/ZaposleniciPromjena'
 
 function App() {
  
@@ -19,6 +20,7 @@ function App() {
             <Route path={RouteNames.HOME} element={<Pocetna />} />
             <Route path={RouteNames.ZAPOSLENIK_PREGLED} element={<ZaposleniciPregled />} />
             <Route path={RouteNames.ZAPOSLENIK_NOVI} element={<ZaposleniciDodaj />} />
+            <Route path={RouteNames.ZAPOSLENIK_PROMJENA} element={<ZaposleniciPromjena />} />
            </Routes>
         <hr />
         &copy; Grec 2024 - 2025

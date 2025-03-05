@@ -1,14 +1,27 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { RouteNames } from "../../constants";
 import ZaposlenikService from "../../services/ZaposlenikService";
+import { useEffect, useState } from "react";
 
-export default function ZaposleniciDodaj(){
+export default function ZaposleniciPromjena()
+{
 
     const navigate = useNavigate();
+    const [zaposlenik, setZaposlenik] = useState({});
+    const routeParams = useParams();
+
+    async function dohvatiZaposlenika(){
+        const odgovor = await ZaposlenikService.getBySifra(routeParams.sifra)
+        setZaposlenik(odgovor)
+    }
+
+    useEffect(()=>{
+        dohvatiZaposlenika();
+    },[])
 
     async function dodaj(zaposlenik){
-        const odgovor = await ZaposlenikService.dodaj(zaposlenik);
+        const odgovor = ZaposlenikService.dodaj(zaposlenik);
         if(odgovor.greska){
             alert(odgovor.poruka)
             return
@@ -40,17 +53,20 @@ export default function ZaposleniciDodaj(){
 
                 <Form.Group controlId="ime">
                 <Form.Label>Ime</Form.Label>
-                <Form.Control type="text" name="ime" required />
+                <Form.Control type="text" name="ime" required
+                defaultValue={zaposlenik.ime} />
             </Form.Group>
 
             <Form.Group controlId="prezime">
                 <Form.Label>Prezime</Form.Label>
-                <Form.Control type="text" name="prezime" required />
+                <Form.Control type="text" name="prezime" required
+                defaultValue={zaposlenik.prezime} />
             </Form.Group>
 
             <Form.Group controlId="oib">
                 <Form.Label>OIB</Form.Label>
-                <Form.Control type="text" name="oib" required />
+                <Form.Control type="text" name="oib" required
+                defaultValue={zaposlenik.oib} />
             </Form.Group>
 
             <hr/>
