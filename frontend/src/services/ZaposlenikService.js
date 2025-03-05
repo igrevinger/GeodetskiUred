@@ -2,7 +2,7 @@ import { HttpService } from "./HttpService";
 
 
 async function get(){
-    return await HttpService.get('/Zaposlenik')
+    return await HttpService.get('/zaposlenik')
     .then((odgovor)=>{
         //console.table(odgovor.data)
         return odgovor.data;
@@ -10,17 +10,16 @@ async function get(){
     .catch((e)=>{})
 }
 
-async function getBySifra(){
-    return await HttpService.get('/Zaposlenik' + sifra)
+async function getBySifra(sifra){
+    return await HttpService.get('/zaposlenik/' + sifra)
     .then((odgovor)=>{
-        //console.table(odgovor.data)
-        return odgovor.data;
+            return odgovor.data;
     })
     .catch((e)=>{})
 }
 
 async function dodaj(zaposlenik) {
-    return HttpService.post('/Zaposlenik',zaposlenik)
+    return HttpService.post('/zaposlenik',zaposlenik)
     .then(()=>{return{greska: false, poruka: 'Dodano'}})
     .catch(()=>{return {greska: true, poruka: 'Problem kod dodavanja'}})    
     

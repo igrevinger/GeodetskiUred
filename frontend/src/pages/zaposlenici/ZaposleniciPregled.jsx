@@ -7,7 +7,7 @@ import { RouteNames } from "../../constants";
 
 export default function ZaposleniciPregled(){
 
-    const [zaposlenici, setZaposlenici] = useState();
+    const [zaposlenici, setZaposlenici] = useState([]);
     const navigate = useNavigate();
     async function dohvatiZaposlenike(){
         const odgovor = await ZaposlenikService.get()
@@ -35,24 +35,27 @@ export default function ZaposleniciPregled(){
             </tr>
         </thead>
         <tbody>
-            {zaposlenici && zaposlenici.map((zaposlenici,index)=>(<tr>
-                <td>
-                  {zaposlenici.ime}
-                </td>
-                <td>
-                  {zaposlenici.prezime}
-                </td>
-                <td>
-                  {zaposlenici.oib}
-                </td>
-                <td>
-                    <Button
-                    onClick={()=>navigate(`/zaposlenici/${zaposlenik.sifra}`)}
-                    >Promjena</Button>
-                </td>
-            </tr>))}
+            {zaposlenici && zaposlenici.map((zaposlenik)=>{
+                return (<tr>
+                    <td>
+                        {zaposlenik.ime}
+                    </td>
+                    <td>
+                        {zaposlenik.prezime}
+                    </td>
+                    <td>
+                        {zaposlenik.oib}
+                    </td>
+                    <td>
+                        <Button
+                            onClick={() => navigate(`/zaposlenici/${zaposlenik.sifra}`)}
+                        >Promjena</Button>
+                    </td>
+                </tr>
+                );
+            })}
         </tbody>
      </Table>
      </>
-    )
+    );
 }
