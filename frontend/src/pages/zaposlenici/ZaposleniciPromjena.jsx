@@ -20,8 +20,8 @@ export default function ZaposleniciPromjena()
         dohvatiZaposlenike();
     },[])
 
-    async function dodaj(zaposlenik){
-        const odgovor = ZaposlenikService.dodaj(zaposlenik);
+    async function promjena(zaposlenik){
+        const odgovor = await ZaposlenikService.promjena(routeParams.sifra,zaposlenik);
         if(odgovor.greska){
             alert(odgovor.poruka)
             return
@@ -35,7 +35,7 @@ export default function ZaposleniciPromjena()
 
         let podaci = new FormData(e.target);
 
-        dodaj(
+        promjena(
 
             {
                 ime: podaci.get('ime'),
@@ -82,7 +82,7 @@ export default function ZaposleniciPromjena()
 
             <Col xs={6} sm={6} md={9} lg={6} xl={6} xxl={6}>
                <Button variant="success" type="submit" className="siroko">
-                Ažuriraj zaposlenika
+                Promjeni zaposlenika
                </Button>
             </Col>
 

@@ -25,10 +25,24 @@ async function dodaj(zaposlenik) {
     
 }
 
+async function promjena(sifra,zaposlenik) {
+    return HttpService.put('/zaposlenik/' +sifra,zaposlenik)
+    .then(()=>{return{greska: false, poruka: 'Dodano'}})
+    .catch(()=>{return {greska: true, poruka: 'Problem kod promjene'}})    
+    
+}
 
+async function obrisi(sifra) {
+    return HttpService.delete('/zaposlenik/' +sifra)
+    .then(()=>{return{greska: false, poruka: 'Obrisano'}})
+    .catch(()=>{return {greska: true, poruka: 'Problem kod brisanja'}})    
+    
+}
 
 export default{
     get,
     getBySifra,
-    dodaj
+    dodaj,
+    promjena,
+    obrisi
 }

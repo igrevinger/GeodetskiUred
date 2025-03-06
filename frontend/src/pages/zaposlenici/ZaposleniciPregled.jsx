@@ -16,7 +16,23 @@ export default function ZaposleniciPregled(){
 
     useEffect(()=>{
         dohvatiZaposlenike();
-    },[])    
+    },[])
+    
+    function obrisi(sifra){
+        if(!confirm('Sigurno obrisati')){
+            return;
+        }
+        brisanjeZaposlenika(sifra);
+    }
+    
+    async function brisanjeZaposlenika(sifra) {
+        const odgovor = await ZaposlenikService.obrisi(sifra);
+        if(odgovor.greska){
+            alert(odgovor.poruka);
+            return;
+        }
+        dohvatiZaposlenike();
+    }
 
     return(
        <>
@@ -50,6 +66,11 @@ export default function ZaposleniciPregled(){
                         <Button
                             onClick={() => navigate(`/zaposlenici/${zaposlenik.sifra}`)}
                         >Promjena</Button>
+                        &nbsp;&nbsp;&nbsp;
+                        <Button
+                            variant="danger"
+                            onClick={() => obrisi(zaposlenik.sifra)}
+                        >Obriši</Button>
                     </td>
                 </tr>
                 );
